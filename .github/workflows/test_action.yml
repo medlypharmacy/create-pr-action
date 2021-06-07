@@ -1,0 +1,17 @@
+name: Testing action to create PR
+
+on: [push]
+
+jobs:
+  create-pr-against-master-job:
+    runs-on: ubuntu-latest
+    name: A job to create PR from release branch against main branch
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: '0'
+      - run: exit 0
+      - name: Create PR
+        uses: medlypharmacy/create-pr-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
