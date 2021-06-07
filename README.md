@@ -1,3 +1,4 @@
+
 # create-pr-action
 
 A Github Action which automatically creates PR from one branch (configurable with env variable HEAD_BRANCH) 
