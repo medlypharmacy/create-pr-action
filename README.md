@@ -1,5 +1,6 @@
 # create-pr-action
 
+
 A Github Action which automatically creates PR from one branch (configurable with env variable HEAD_BRANCH) 
 against another branch (configurable with env variable as BASE_BRANCH) if it (HEAD_BRANCH) is ahead of another branch (BASE_BRANCH)
 
