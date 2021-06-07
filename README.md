@@ -59,7 +59,7 @@ jobs:
         run: echo "building project"
 
       - name: Create PR
-        uses: medlypharmacy/create-pr-action@master
+        uses: medlypharmacy/create-pr-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_BRANCH: development
