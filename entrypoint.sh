@@ -9,8 +9,6 @@ BASE_BRANCH=${BASE_BRANCH:-main}
 
 CREATE_PR_URL=https://api.github.com/repos/$REPOSITORY/pulls
 
-RESPONSE="Unknown Response"
-
 echo "::info::Configuration"
 echo "::info:: CURRENT_BRANCH $CURRENT_BRANCH"
 echo "::info:: HEAD_BRANCH $HEAD_BRANCH"
@@ -23,11 +21,10 @@ check_create_PR_response() {
     if [ "$ERROR" != null ]; then
       PR_EXISTS=$(echo "${ERROR}" | jq 'select(. | contains("A pull request already exists for"))')
       if [ "$PR_EXISTS" != null ]; then
-        RESPONSE="PR exists from $CURRENT_BRANCH against $BASE_BRANCH"
+        echo "::info:: PR exists from $CURRENT_BRANCH against $BASE_BRANCH"
         exit 0
       else
         echo "::ERROR:: Error in creating PR from $CURRENT_BRANCH against $BASE_BRANCH: $ERROR "
-        RESPONSE="Error in creating PR from $CURRENT_BRANCH against $BASE_BRANCH: $ERROR"
         exit 1
       fi
     fi
@@ -63,11 +60,7 @@ if [ "$CURRENT_BRANCH" = "$HEAD_BRANCH" ]; then
           -d '{"state":"closed", "title": "PR closed as 0 file changes"}'
       )
       echo "::info:: PR auto closed as $BASE_BRANCH is up-to-date with $CURRENT_BRANCH"
-      RESPONSE="PR not needed as $BASE_BRANCH is up-to-date with $CURRENT_BRANCH"
     else
-      RESPONSE="PR created successfully $PR_URL"
+      echo "::info:: PR created successfully $PR_URL"
     fi
 fi
-
-echo "RESPONSE ${RESPONSE}"
-
