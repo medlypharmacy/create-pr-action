@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Create PR
-        uses: medlypharmcy/create-pr-action@master
+        uses: medlypharmcy/create-pr-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
