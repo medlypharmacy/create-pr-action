@@ -3,9 +3,10 @@ name: Publish container image for action
 on:
   push:
     branches: 
-      - *
-
-publish-to-registry:
+      - '*'
+      
+jobs:      
+  publish-to-registry:
     runs-on: ubuntu-latest
     steps:
       - 
