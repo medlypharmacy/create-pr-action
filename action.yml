@@ -4,6 +4,7 @@ description: 'Action to automatically create PR to keep two branches in sync. Fo
 release branch against Master/Main branch'
 author: 'Poorva Gokhale'
 
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: docker://ghcr.io/medlypharmacy/create-pr-action/runner:main
