@@ -7,4 +7,4 @@ author: 'Poorva Gokhale'
 
 runs:
   using: docker
-  image: docker://ghcr.io/medlypharmacy/s3-artifacts-action/runner:release
+  image: docker://ghcr.io/medlypharmacy/create-pr-action/runner:release
