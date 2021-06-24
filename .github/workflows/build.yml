@@ -60,6 +60,7 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
 
   create-pr-against-master-job:
+    needs: [publish-to-registry]
     runs-on: ubuntu-latest
     name: create PR
     steps:
@@ -68,6 +69,6 @@ jobs:
           fetch-depth: '0'
       - run: exit 0
       - name: Create PR
-        uses: medlypharmacy/create-pr-action@main
+        uses: medlypharmacy/create-pr-action@release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
