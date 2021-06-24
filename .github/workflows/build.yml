@@ -69,6 +69,6 @@ jobs:
           fetch-depth: '0'
       - run: exit 0
       - name: Create PR
-        uses: medlypharmacy/create-pr-action@release
+        uses: medlypharmacy/create-pr-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
