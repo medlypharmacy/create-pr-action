@@ -39,7 +39,7 @@ if [ "$CURRENT_BRANCH" = "$HEAD_BRANCH" ]; then
       -H "Accept: application/vnd.github.v3+json" \
       -H "Authorization: token $GITHUB_TOKEN" \
       "$CREATE_PR_URL" \
-      -d "{\"head\":\"$CURRENT_BRANCH\",\"base\":\"$BASE_BRANCH\", \"title\": \"Merge $CURRENT_BRANCH into $BASE_BRANCH\"}"
+      -d "{\"head\":\"$CURRENT_BRANCH\",\"base\":\"$BASE_BRANCH\", \"title\": \"chore: Merge $CURRENT_BRANCH into $BASE_BRANCH\"}"
   )
     ERROR_MSG=$(echo "${GIT_CREATE_PR_RESPONSE}" | jq '.errors[0].message')
     check_create_PR_response "$ERROR_MSG"
